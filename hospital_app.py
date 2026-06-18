@@ -108,3 +108,22 @@ if st.button("Predict Department"):
     'chief_complaint':
         cc_map.get(chief_complaint, 9)
   }])
+
+
+patient_scaled = patient.copy()
+
+patient_scaled[cols_to_scale] = scaler.transform(
+  patient[cols_to_scale]
+)
+
+
+prediction = model.predict(
+  patient_scaled[features]
+)[0]
+
+
+department = dept_map_inv[prediction]
+
+st.success(
+  f"Recommended Department: {department}"
+)
