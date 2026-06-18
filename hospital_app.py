@@ -48,3 +48,11 @@ shortness_breath = st.checkbox("Shortness of Breath")
 nausea_vomiting = st.checkbox("Nausea / Vomiting")
 dizziness = st.checkbox("Dizziness")
 skin_rash = st.checkbox("Skin Rash")
+
+
+st.header("Medical Information")
+
+chief_complaint = st.selectbox(
+  "Chief Complaint",
+  list(cc_map.keys())
+)
