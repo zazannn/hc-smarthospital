@@ -110,20 +110,20 @@ if st.button("Predict Department"):
   }])
 
 
-patient_scaled = patient.copy()
+  patient_scaled = patient.copy()
 
-patient_scaled[cols_to_scale] = scaler.transform(
-  patient[cols_to_scale]
-)
-
-
-prediction = model.predict(
-  patient_scaled[features]
-)[0]
+  patient_scaled[cols_to_scale] = scaler.transform(
+    patient[cols_to_scale]
+  )
 
 
-department = dept_map_inv[prediction]
+  prediction = model.predict(
+    patient_scaled[features]
+  )[0]
 
-st.success(
-  f"Recommended Department: {department}"
-)
+
+  department = dept_map_inv[prediction]
+
+  st.success(
+    f"Recommended Department: {department}"
+  )
